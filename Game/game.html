@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页小游戏</title>
+	<link rel="stylesheet" href="ballshot.css" />
+	<link rel="stylesheet" href="wolf.css" />
+	<script src="../jquery/jquery-1.12.4.js"></script>
+	<script src="wolf.js"></script>
+	<script src="ballshot.js"></script>
+</head>
+<body>
+<!--游戏界面-->
+<div id="div1" class="game textcenter">
+	<!--游戏菜单-->	
+	<table id="ballgame" class="gamelist absolute textcenter fontstyle vercenter">	
+	 	<caption class='caption shadow textcenter'>网页小游戏</caption>	
+		<thead>
+			<tr class="shadow">
+				<th>游戏名称</th>
+				<th>进入通道</th>
+				<th>游戏说明</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--射击游戏-->
+			<tr>
+				<td class='one left vercenter borderrad'>气球射击</td>
+				<td>
+				 <img id="enter" class="enterbtn vercenter borderrad" src="img/enter.png" alt="" />
+				</td>
+				<td class='one right vercenter borderrad' onclick="display('btext',true)">游戏规则</td>
+			</tr>
+			<!--狂拍灰太狼游戏-->
+			<tr>
+				<td class='one left vercenter borderrad'>狂拍灰太狼</td>
+				<td>
+				 <img id="wenter" class="enterbtn vercenter borderrad" src="img/enter.png" alt="" />
+				</td>
+				<td class='one right vercenter borderrad' onclick="display('wtext',true)">游戏规则</td>
+			</tr>
+			<!--搭桥游戏-->
+			<tr>
+				<td class='one left vercenter borderrad'>搭桥游戏</td>
+				<td>
+				 <img id="denter" class="enterbtn vercenter borderrad" src="img/enter.png" alt="" />
+				</td>
+				<td class='one right vercenter borderrad' onclick="display('dtext',true)">游戏规则</td>
+			</tr>
+		</tbody>
+	</table> 
+<!--气球射击游戏说明-->
+	<div id='btext' class="inst pcenter dis fontstyle backg absolute">
+		<div class="textcenter">
+			<h2>游戏说明</h2>
+		</div>
+	    <div>
+		    <p class="cont">
+			左键和右键：左右移动</br>
+			空格键弹起：发子弹</br>
+	        </br>
+	        绿气球：速度慢，中一弹消失，得一分</br>
+	        蓝气球：速度中快，中两弹消失，得二分</br>
+	        粉气球：速度快，中三弹消失，得三分</br>
+	        </br>
+	        第一关：3排绿气球，3排蓝气球</br>
+	        第二关：2排绿气球，2排蓝气球，2排粉气球</br>
+	        </br>
+	        当前关卡的气球全部消灭完毕即通关
+		 	</p>
+		</div>	   
+	    <div class="textcenter">
+			<input class="btn1 fontstyle" type="button" value="返回" onclick="display('btext',false)" />
+		</div>
+	</div>
+	<!--狂拍灰太狼游戏说明-->
+	<div id='wtext' class="inst pcenter dis fontstyle backg absolute">
+		<div class="textcenter">
+			<h2>游戏说明</h2>
+		</div>
+	    <div>
+		    <p class="cont">
+			草地上随机出现灰太狼和小灰灰</br>
+			鼠标单击灰太狼加10分</br>
+	        鼠标单击小灰灰减10分</br>	        
+	        </br>
+	        lifeBar的绿色线为生命条进度</br>
+            游戏开始生命条逐渐减少</br>
+	        当生命值为0，即绿色进度条消失，游戏结束</br>
+	        </br>
+	        积分达到1000分即通关
+		 	</p>
+		</div>	   
+	    <div class="textcenter">
+			<input class="btn1 fontstyle" type="button" value="返回" onclick="display('wtext',false)" />
+		</div>
+	</div>
+	<!--狂拍灰太狼游戏说明-->
+	<div id='dtext' class="inst pcenter dis fontstyle backg absolute">
+		<div class="textcenter">
+			<h2>游戏说明</h2>
+		</div>
+	    <div>
+		    <p class="cont">
+			总共5关</br>
+			</br>
+			随关数增加，柱子越来越多,柱子宽度越来越窄，柱子间隔越来越宽</br>	               
+	        </br>
+	        玩法：点击帽子按钮，木棍伸长，以木棍做桥跑过两柱子间隔算成功，一次只能跑一个柱子间隔</br>
+		 	</p>
+		</div>	   
+	    <div class="textcenter">
+			<input class="btn1 fontstyle" type="button" value="返回" onclick="display('dtext',false)" />
+		</div>
+	</div>
+	<!--积分窗口-->
+	<div id="score" class="fontstyle dis fixed">			
+	   	积分：<span id="sc">0</span>	   	
+	</div>
+	<div id="gk" class="fontstyle dis">
+		第<span id="gknum">1</span>关
+	</div>
+	<!--生命条-->	
+	<div id="lifebar" class="fontstyle dis">			
+	   	生命（lifeBar）：
+	   	<button class="bar border"></button>
+	   	<button id="bar" class="bar bggreen absolute"></button>	   	
+	</div>
+	<!--开始游戏按钮-->
+	<div id="play" class="pcenter dis fixed">
+		<img class="btn2" src="img/play.jpg" alt="" />
+	</div>
+	<div id="wolfPlay" class="pcenter dis fixed">
+		<img class="btn2" src="img/play.jpg" alt="" />
+	</div>
+	<!--游戏结束-->
+	<div id="gameover" class="over pcenter dis shadow fixed">GAME OVER!!</div>	
+	<div id="gover" class="pcenter dis fixed">
+		<p class="gover">GAME OVER!!</p>
+		<button class="restart border">重新开始</button>
+	</div>
+	
+</div>
+</body>
+</html>

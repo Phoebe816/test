@@ -1,0 +1,143 @@
+*{margin:0px;  padding:0px;border:0px;}       
+html,body{
+	width:100%;height: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+body{
+	background:url(./img/bg.jpg) center no-repeat scroll transparent;
+	background-size: 100% 100%;
+}
+li{
+	list-style: none;      
+}
+ /*上面为初始化*/
+.textcenter{
+	text-align: center;
+}
+.vercenter{
+	vertical-align: middle;
+}
+.pcenter{	
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.fontstyle{
+	font-weight: bold;	
+	font-size: 20px;
+}
+.borderrad{
+    border-radius: 10px;
+}
+.dis{	
+    display: none;
+}
+.fixed{	  	   
+    position: fixed;    
+}
+.absolute{
+	position: absolute;
+}
+.backg{
+	background: white;
+}
+.shadow{
+	text-shadow: 0px 0px 10px #D15FEE;
+}
+/*上面为通用class*/
+.caption{
+	font-size: 35px;	
+	color:blue;				
+}
+.game{        /*游戏界面div*/
+	width:1200px; height: 100%;		
+	margin:auto;		
+	position: relative;	
+}
+.gamelist{       /*游戏菜单div*/	
+	font-size: 25px;			
+	border-collapse: separate;
+	border-spacing: 30px 30px;
+	top:10%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.enterbtn{    /*进入游戏,下一关img*/
+	width:180px; height: 50px;
+	margin:0px 80px;     
+}
+.one{      /*游戏名称，游戏规则*/    
+    border:5px solid #7A67EE;
+    padding: 2px;
+    background: #87CEFA;    
+}
+tbody tr td:nth-child(n+2):hover{
+	cursor: pointer;
+	color: red;
+}
+tbody tr td:nth-child(1):hover{
+	cursor: default;	
+}
+.btn1,.btn2:hover{
+	cursor: pointer;
+}
+.inst{       /*游戏说明*/					
+	padding: 30px 100px;	
+}
+.cont{text-align: left;margin: 30px 0px;}
+.btn1{      /*游戏说明返回按钮*/ 
+	width:80px;
+	height:40px; 	   
+}
+.btn2{      /*play按钮*/ 
+	width:80px;
+	height:80px; 
+	border-radius: 50%;    
+}
+.ball{    /*球框ul*/
+    position: absolute;  
+    display: inline-block;             
+}
+.b1{      /*绿色的球*/
+	background: url(./img/green.jpg) no-repeat;	
+	border-radius: 50px;
+	width: 40px;
+	height: 40px;	
+	float: left;	
+}
+.b2{      /*蓝色的球*/
+	background: url(./img/blue.jpg) no-repeat;
+	border-radius: 20px;
+	width: 40px;
+	height: 40px;	
+	float: left;
+}
+.b3{      /*粉色的球*/
+	background: url(./img/pink.jpg) no-repeat;	
+	border-radius: 50px;
+	width: 40px;
+	height: 40px;	
+	float: left;
+}
+.gun{
+	background: url(./img/gun.jpg) no-repeat;
+	position: absolute;
+	width:50px;
+	height: 50px;	
+}
+.bullet{
+	background: red;
+	position: absolute;
+	width: 1px;
+	height: 10px;
+}
+@keyframes gameover
+{
+    from{color: white;font-size: 30px;}
+    to{color: red;font-size: 60px;}
+}
+.over{
+	animation: gameover 5s;
+	-webkit-animation:gameover 5s;
+}
