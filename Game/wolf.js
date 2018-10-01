@@ -57,7 +57,7 @@ $(function(){
   			$Wolf.one('click',function() {     
   			   $("#sc").text(parseInt($("#sc").text())-10);
   			   debugger
-  			   $score.empty();
+  			   $score.empty().css({color: '#f00'});
   			   $score.html('-10分').stop().fadeOut();
   			}); 		
   		} else {                       //如果是灰太狼
@@ -66,7 +66,7 @@ $(function(){
   			});
   			$Wolf.one('click',function() {
   			   $("#sc").text( parseInt($("#sc").text()) + 10);
-  			    $score.empty();
+  			    $score.empty().css({color: '#4876FF'});
   			    $score.html('+10分').stop().fadeOut();
   			}); 
   		}  		
